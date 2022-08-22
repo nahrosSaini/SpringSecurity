@@ -11,11 +11,11 @@
 <hr>
 
 <div>
-    <ul>
-        <li sec:authorize="isAuthenticated()">
-            <a th:href="@{/logout}">Logout</a>
-        </li>
-    </ul>
+    <form th:action="@{/logout}" method="post">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+        <input type="submit" name="logout-submit" id="logout-submit"
+                value="Logout" />
+    </form>
 </div>
 </body>
 </html>
